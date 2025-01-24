@@ -1,0 +1,6 @@
+@InvestorCommitments_HostAddress = http://localhost:5151
+
+GET {{InvestorCommitments_HostAddress}}/api/Investors/
+Accept: application/json
+
+###
