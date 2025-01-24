@@ -1,5 +1,6 @@
 # Prequin
 Assigment for Prequin fullstack interview .net and react
+Candidate details: Jai Jagwani (jaijagwani96@gmail.com)
 
 # Description
 -The repository includes 2 different folders, MicroFrontends and MicroService.
@@ -24,6 +25,3 @@ Assigment for Prequin fullstack interview .net and react
 
 # Techstack MicroFrontends
 - TypeScript, React, Redux toolkit, React router, MicroFronend using Module federation plugin
-
-# For any queries
-- Reach out to: jaijagwani96@gmail.com
