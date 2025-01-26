@@ -2,26 +2,28 @@ import { Investor } from "../Types";
 
 const API_SERVER = "https://localhost:7000/api";
 
-export const getInvestors: ()=> Promise<Investor[]> = async () => {
-    try{
-        const investors = await fetch(`${API_SERVER}/Investors`);
-        const jsonInvestors = investors.json();
-
-        return jsonInvestors;
-    }
-    catch{
-        console.log(`Failed to call API ${API_SERVER}/Investors`);
+const fetchData = async <T>(url: string): Promise<T | undefined> => {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Error fetching data: ${response.status} ${response.statusText}`);
+        }
+        return await response.json();
+    } catch (err) {
+        console.error(`Failed to fetch data from ${url}:`, err);
+        throw(err)
     }
 };
 
-export const getInvestorById: (id:number)=> Promise<Investor[]> = async (id) => {
-    try{
-        const investor = await fetch(`${API_SERVER}/Investors/${id}`);
-        const jsonInvestor = investor.json();
+export const getInvestors = async (
+    id?: number
+): Promise<Investor[] | undefined> => {
+    try {
+        const baseUrl = `${API_SERVER}/Investors`;
+        const url = id ? `${baseUrl}/${id}` : baseUrl;
+        return await fetchData<Investor[]>(url);
+    } catch (err) {
+        throw (err);
+    }
 
-        return jsonInvestor;
-    }
-    catch{
-        console.log(`Failed to call API ${API_SERVER}/Investors/${id}`);
-    }
 };

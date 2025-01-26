@@ -75,8 +75,9 @@ module.exports = (_, argv) => ({
         Commitments: "Commitments@http://localhost:3001/remoteEntry.js"
       },
       exposes: {
-        "./Header": "./src/Components/Shared/Header.tsx",
-        "./TableContent": "./src/Components/Shared/TableContent.tsx",
+        "./Header": "./src/Containers/Header/index.tsx",
+        "./TableContent": "./src/Containers/TableContent/index.tsx",
+        "./Loader": "./src/Containers/Loader/index.tsx",
         "./store": "./src/store/index.ts",
         "./API": "./src/APIs/index.ts",
         "./Types": "./src/Types/index.ts",

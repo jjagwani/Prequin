@@ -1,6 +1,6 @@
 import React from "react";
 import { Table, TableCell, TableBody, TableContainer, TableHead, TableRow, Paper, tableCellClasses } from "@mui/material";
-import { useStyles } from "../Styles";
+import { useStyles } from "./styles";
 import { styled } from '@mui/material/styles';
 import { getHeaderName, formatNumber } from "../../Helpers";
 import { TableContentProps, DataTableProps } from "../../Types";

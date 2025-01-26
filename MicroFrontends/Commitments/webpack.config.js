@@ -75,7 +75,8 @@ module.exports = (_, argv) => ({
         Investors: "Investors@http://localhost:3000/remoteEntry.js"
       },
       exposes: {
-        "./CommitmentsContent": "./src/Components/CommitmentsContent.tsx",
+        "./CommitmentsContent": "./src/Components/CommitmentsContent/index.tsx",
+        "./Types": "./src/Types/index.ts",
       },
       shared: {
         ...deps,

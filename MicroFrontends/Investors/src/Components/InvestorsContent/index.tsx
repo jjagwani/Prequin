@@ -1,13 +1,13 @@
 import React from "react";
-import Header from "./Shared/Header";
-import InvestorsTable from "./InvestorsTable";
-import { useStyles } from "./Styles";
+import Header from "../../Containers/Header";
+import InvestorsTable from "../InvestorsTable";
+import { useStyles } from "./styles";
 
 const InvestorsContent: React.FC = () => {
   const classes = useStyles();
 
   return (
-  <div className={classes.commonPadding}>
+  <div className={classes.contentPadding}>
     <Header subHeading="Investors" />
     <InvestorsTable />
   </div>);

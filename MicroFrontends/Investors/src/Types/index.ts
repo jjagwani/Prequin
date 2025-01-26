@@ -1,3 +1,5 @@
+import { Commitment } from "Commitments/Types";
+
 export interface Investor {
     id: number
     name: string,
@@ -7,17 +9,9 @@ export interface Investor {
     totalCommitment: number
 };
 
-export interface Commitment {
-    id: number
-    assetClass: string,
-    amount: string,
-    currency: string
-};
-
 export interface HeaderProps {
     subHeading?: string;
 };
-
 
 export interface TableContentProps {
     data?: Investor[] | Commitment[];
@@ -39,16 +33,6 @@ export interface InvestorState {
     totalCommitment: number
 };
 
-export interface FilterProps {
-    totalCommitment: number
-};
-
-export interface Asset {
-    assetType: string,
-    totalAmount: number
-}
-
-export interface State {
-    filter: FilterState,
-    investor: InvestorState
+export interface LoaderProps {
+    text: string;
 }

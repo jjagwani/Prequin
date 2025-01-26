@@ -2,38 +2,39 @@ import { Commitment, Asset } from "Investors/Types";
 
 const API_SERVER = "https://localhost:7000/api";
 
-export const getCommitments: (id:number) => Promise<Commitment[]> = async (id) => {
-    try{
-        const commitments = await fetch(`${API_SERVER}/Commitments/${id}/details`);
-        const jsonCommitments = commitments.json();
-
-        return jsonCommitments;
-    }
-    catch{
-        console.log(`Failed to call API ${API_SERVER}/Commitments/${id}/details`);
-    }
-};
-
-export const getAssetClasses: (id: number) => Promise<Asset[]> = async (id) => {
-    try{
-        const assets = await fetch(`${API_SERVER}/Commitments/${id}/assets`);
-        const jsonAssets = assets.json();
-
-        return jsonAssets;
-    }
-    catch{
-        console.log(`Failed to call API ${API_SERVER}/Commitments/${id}/assets`);
+const fetchData = async <T>(url: string): Promise<T | undefined> => {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Error fetching data: ${response.status} ${response.statusText}`);
+        }
+        return await response.json();
+    } catch (err) {
+        console.error(`Failed to fetch data from ${url}:`, err);
+        throw(err);
     }
 };
 
-export const getCommitmentsByType: (id:number, assetType:string) => Promise<Commitment[]> = async (id, assetType) => {
-    try{
-        const commitments = await fetch(`${API_SERVER}/Commitments/${id}/details?assetClass=${assetType}`);
-        const jsonCommitments = commitments.json();
-
-        return jsonCommitments;
+export const getCommitments = async (
+    id: number,
+    assetType?: string
+): Promise<Commitment[] | undefined> => {
+    try {
+        const baseUrl = `${API_SERVER}/Commitments/${id}/details`;
+        const url = assetType ? `${baseUrl}?assetClass=${assetType}` : baseUrl;
+        return await fetchData<Commitment[]>(url);
     }
-    catch{
-        console.log(`Failed to call API ${API_SERVER}/Commitments/${id}/details?assetClass=${assetType}`);
+    catch (err) {
+        throw (err);
+    }
+};
+
+export const getAssetClasses = async (id: number): Promise<Asset[] | undefined> => {
+    try {
+        const url = `${API_SERVER}/Commitments/${id}/assets`;
+        return await fetchData<Asset[]>(url);
+    }
+    catch (err) {
+        throw (err);
     }
 };

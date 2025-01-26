@@ -1,5 +1,5 @@
 import React from "react";
-import { useStyles } from "../Styles";
+import { useStyles } from "./styles";
 import { HeaderProps } from "../../Types";
 
 const Header: React.FC<HeaderProps> = ({subHeading}) => {
