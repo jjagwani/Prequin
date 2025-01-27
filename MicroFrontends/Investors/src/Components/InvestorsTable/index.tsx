@@ -3,7 +3,7 @@ import TableContent from "../../Containers/TableContent"
 import { getInvestors } from "../../APIs";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from "react-redux";
-import { selectInvestor } from "../../store";
+import { selectInvestor } from "../../Redux/Actions/Investor";
 import { Investor } from "../../Types";
 import { useStyles } from "./styles";
 import Loader from "../../Containers/Loader";

@@ -3,7 +3,7 @@ import { Chip, Box, Typography, CircularProgress } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { getAssetClasses } from "../../APIs";
 import { useDispatch } from "react-redux";
-import { selectFilter, resetFilter } from "Investors/store";
+import { selectFilter, resetFilter } from "Investors/FilterActions";
 import { useStyles } from "./styles";
 import { FilterProps, Asset } from "../../Types";
 import { formatNumber } from "Investors/Helpers";

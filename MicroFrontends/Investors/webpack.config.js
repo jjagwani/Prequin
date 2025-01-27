@@ -78,7 +78,8 @@ module.exports = (_, argv) => ({
         "./Header": "./src/Containers/Header/index.tsx",
         "./TableContent": "./src/Containers/TableContent/index.tsx",
         "./Loader": "./src/Containers/Loader/index.tsx",
-        "./store": "./src/store/index.ts",
+        "./Store": "./src/Redux/Store/index.ts",
+        "./FilterActions": "./src/Redux/Actions/Filter/index.ts",
         "./API": "./src/APIs/index.ts",
         "./Types": "./src/Types/index.ts",
         "./Helpers": "./src/Helpers/index.ts"
